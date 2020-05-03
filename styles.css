@@ -72,12 +72,12 @@
   color: white;
   height: 20vh;
   width: 100%;
-  max-width: 360px;
+  max-width: 22.5em;
 
 }
 .table {
-  max-width: 360px;
-  max-height: 640px;
+  max-width: 22.5em;
+  max-height: 40em;
   height: 70vh;
   width: 100%;
   position:relative;
