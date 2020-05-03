@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" href="calc.ico">
+	<title>ios Calculator</title>
+	<link rel="stylesheet" href="styles.css">
+	<meta name="description" content="Replica of ios Calculator app in a webapp with one added feature for history of current session.">
+	<script language="javascript">
+
+	var i=0,x,y,fl2=0,o,f,c=0,fl=0;
+
+	function clr() {
+		document.frm.t1.value=0;
+		c=i=fl2=0;
+	}
+
+	function eq() {
+		if (i==0) {
+
+		}
+		else {
+			calc();
+			i=0;
+		}
+	}
+
+	function calc() {
+		if (i==0 && o!=5)
+		{
+			x=parseFloat(document.frm.t1.value);
+			document.frm.t1.value=0;
+			i++;fl2=0;
+		}
+		else
+		{
+			switch(o)
+			{
+				case 1:
+
+				if (fl==0) {
+					;
+				}
+				else {
+
+					x+=parseFloat(document.frm.t1.value);
+					document.frm.t1.value=x;
+					c=1;
+				}
+				fl=0;
+				break;
+
+				case 2:
+				if (fl==0) {
+
+				}
+				else {
+					x-=parseFloat(document.frm.t1.value);
+					document.frm.t1.value=x;
+					c=1;
+				}
+				fl=0;
+				break;
+
+
+				case 3:
+				if (fl==0) {
+
+				}
+				else {
+					x*=parseFloat(document.frm.t1.value);
+					document.frm.t1.value=x;
+					c=1;
+				}
+				fl=0;
+				break;
+
+				case 4:
+				if (fl==0) {
+
+				}
+				else {
+					x/=parseFloat(document.frm.t1.value);
+					document.frm.t1.value=x;
+					c=1;
+				}
+				fl=0;
+				break;
+
+				case 5:
+				x=parseFloat(document.frm.t1.value)/100;
+				document.frm.t1.value=x;
+				c=1;o=6;
+				fl=0;
+				break;
+
+			}
+		}
+
+
+	}
+
+	function val(f) {
+		if (document.frm.t1.value=='0' || c==1)
+		{
+			if (f=='.') {
+				document.frm.t1.value='0.';
+				c=fl2=0;
+			}
+			else {
+				document.frm.t1.value=f;
+				c=fl2=0;
+			}
+		}
+		else
+		{
+			if (f!='.') {
+				document.frm.t1.value+=f;
+			}
+			else if (fl2==0) {
+				document.frm.t1.value+=f;
+			}
+		}
+		fl=1;
+	}
+
+	function neg() {
+		y=parseFloat(document.frm.t1.value);
+		document.frm.t1.value=0-y;
+	}
+
+	function bsp() {
+		y=document.frm.t1.value;
+		document.frm.t1.value="";
+		var a=y.length,b=0;
+		a--;
+		if (a==0 || (a==1 && y[0]=='-')) {
+			document.frm.t1.value='0';
+		}
+		else {
+			while(b<a) {
+				document.frm.t1.value+=y[b];
+				b++;
+			}
+		}
+
+	}
+
+</script>
+</head>
+<body class="body">
+	<div align="center">
+		<table class="heading">
+			<tr>
+				<td><img src="logo.png" alt="logo" class="img"></td>
+				<td width="80%" align="center">Calculator</td>
+			</tr>
+		</table>
+	</div>
+<div class="content">
+	<form name="frm">
+		<table cellpadding="1%" class="table" align="center">
+			<tr>
+				<td colspan=3><input style="text-align: right" type="text" name="t1" value="0" class="button button5" disabled></td>
+				<td height="16%"><input type="button" name="f1" value="⌫" onclick="bsp()" class="button button0"></td>
+			</tr>
+
+			<tr>
+				<td width="25%" height="16%"><input type="button" name="a1" value="AC" onclick="clr()" class="button button2"></td>
+				<td width="25%"><input type="button" name="a2" value="+/−" onclick="neg()" class="button button2"></td>
+				<td width="25%"><input type="button" name="a3" value="%" onclick="o=5;calc();" class="button button2"></td>
+				<td width="25%"><input type="button" name="a4" value="÷" onclick="calc();o=4;" class="button button3"></td>
+			</tr>
+
+			<tr>
+				<td height="16%"><input type="button" name="b1" value="7" onclick="val(7)" class="button button1"></td>
+				<td><input type="button" name="b2" value="8" onclick="val(8)" class="button button1"></td>
+				<td><input type="button" name="b3" value="9" onclick="val(9)" class="button button1"></td>
+				<td><input type="button" name="b4" value="×" onclick="calc();o=3;" class="button button3"></td>
+			</tr>
+
+			<tr>
+				<td height="16%"><input type="button" name="c1" value="4" onclick="val(4)" class="button button1"></td>
+				<td><input type="button" name="c2" value="5" onclick="val(5)" class="button button1"></td>
+				<td><input type="button" name="c3" value="6" onclick="val(6)" class="button button1"></td>
+				<td><input type="button" name="c4" value="−" onclick="calc();o=2;" class="button button3"></td>
+			</tr>
+
+			<tr>
+				<td height="16%"><input type="button" name="d1" value="1" onclick="val(1)" class="button button1"></td>
+				<td><input type="button" name="d2" value="2" onclick="val(2)" class="button button1"></td>
+				<td><input type="button" name="d3" value="3" onclick="val(3)" class="button button1"></td>
+				<td><input type="button" name="d4" value="+" onclick="calc();o=1;" class="button button3"></td>
+			</tr>
+
+			<tr>
+				<td colspan=2><input type="button" name="e1" value="0" onclick="val(0)" class="button button4"></td>
+				<td height="16%"><input type="button" name="e2" value="." onclick="val('.');fl2=1;" class="button button1"><t/d>
+					<td><input type="button" name="e3" value="=" onclick="eq();a++" class="button button3"></td>
+				</tr>
+			</table>
+		</form>
+</div>
+	</body>
+	</html>
