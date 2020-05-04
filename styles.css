@@ -58,6 +58,7 @@
   width: 90%;
 }
 .button5 {
+  cursor: default;
   border-radius: 2%;
   width: 90%;
 }
