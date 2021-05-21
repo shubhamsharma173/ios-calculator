@@ -1,9 +1,9 @@
 .body {
-  background-color: #1C1C1C;
+  background-color: #1c1c1c;
   overflow: hidden;
 }
 .button {
-  background-color: #1C1C1C;
+  background-color: #1c1c1c;
   border: none;
   border-radius: 100%;
   color: white;
@@ -32,9 +32,8 @@
   filter: brightness(120%);
 }
 .button5:hover {
-  background-color: #1C1C1C;
+  background-color: #1c1c1c;
 }
-
 
 .button1 {
   background-color: #505050;
@@ -42,10 +41,11 @@
   font-size: 150%;
 }
 .button2 {
-  background-color: #D4D4D2;
-  color: black;}
+  background-color: #d4d4d2;
+  color: black;
+}
 .button3 {
-  background-color: #FF9500;
+  background-color: #ff9500;
   color: white;
   font-size: 220%;
   padding: 0;
@@ -74,15 +74,14 @@
   height: 20vh;
   width: 100%;
   max-width: 9em;
-
 }
 .table {
   max-width: 22.5em;
   max-height: 40em;
   height: 70vh;
   width: 100%;
-  position:relative;
-  background-color: #1C1C1C;
+  position: relative;
+  background-color: #1c1c1c;
   border-spacing: 0;
   border: 0;
 }
